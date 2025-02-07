@@ -1,0 +1,70 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the children horizontally in the container */
+    justify-content: center; /* Optional: Center vertically if needed */
+    text-align: center; /* Center the text inside the headers */
+}
+
+h1, h2 {
+    width: 100%; /* Ensures the headers can be centered properly if needed */
+    padding: 10px 0; /* Adds some space around the headers */
+}
+
+.image-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+}
+
+.question {
+    margin-bottom: 10px;
+}
+
+label, select {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.plant {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: calc(100% - 22px); /* Adjust width based on padding and border */
+}
+
+.plant img {
+    max-height: 30%;
+}

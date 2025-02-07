@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Houseplant Helper</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+   <div class="container">
+    <div class="form-section">
+        <h1>Houseplant Helper</h1>
+        <h2>Murder fewer houseplants...maybe?</h2>
+        <form id="plant-form" action="/getPlants" method="GET">
+            <div class="question">
+                <label for="edible">Do you want to eat it?</label>
+                <select name="edible" id="edible">
+                    <option value="" selected>No preference</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="pets_kids">Do you have pets or kids that might want to eat it?</label>
+                <select name="pets_kids" id="pets_kids">
+                    <option value="" selected>No preference</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="lifespan">How long do you want it to live?</label>
+                <select name="lifespan" id="lifespan">
+                    <option value="" selected>No preference</option>
+                    <option value="perennial">Preferably forever - perennial</option>
+                    <option value="annual">I'm here for a fun time, not a long time - annual</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="water_schedule">Do you water your plants?</label>
+                <select name="water_schedule" id="water_schedule">
+                    <option value="" selected>No preference</option>
+                    <option value="frequent">Yes - I have a regular schedule</option>
+                    <option value="average">Yes - every so often</option>
+                    <option value="minimum">Maybe - if I remember, but don't count on it...</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="sunlight">How much sunlight do you get?</label>
+                <select name="sunlight" id="sunlight">
+                    <option value="" selected>No preference</option>
+                    <option value="full_sun">Full sun!</option>
+                    <option value="full_shade">All shade, all the time</option>
+                    <option value="part_shade">Equal parts sun and shade (or I dunno...)</option>
+                </select>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="image-section">
+        <% if (plants !== null) { %>
+            <% if (plants.length > 0) { %>
+                <% plants.forEach(plant => { %>
+                    <div class="plant">
+                        <h3><%= plant.common_name %> (<%= plant.scientific_name.join(', ') %>)</h3>
+                        <% if (plant.default_image) { %>
+                            <img src="<%= plant.default_image.small_url %>" alt="<%= plant.common_name %>">
+                        <% } else { %>
+                            <img src="img/placeholder_plant.jpg" alt="Default Image">
+                        <% } %>
+                        <p>Lifecycle: <%= plant.cycle %></p>
+                        <p>Watering: <%= plant.watering %></p>
+                        <p>Sunlight: <%= plant.sunlight.join(', ') %></p>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p><%= message %></p>
+            <% } %>
+        <% } else { %>
+            <img src="img/splash_plant1.jpg" alt="Greener Thumb Home">
+        <% } %>
+    </div>
+   </div>
+</body>
+</html>
