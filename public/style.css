@@ -1,7 +1,10 @@
+/* General Styles */
 body, html {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background-color: #e8f5e9;
+    text-align: center;
 }
 
 .container {
@@ -10,61 +13,123 @@ body, html {
     height: 100vh;
 }
 
+/* Header Styling */
+.header-container {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+/* Form Section */
 .form-section {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center the children horizontally in the container */
-    justify-content: center; /* Optional: Center vertically if needed */
-    text-align: center; /* Center the text inside the headers */
-}
-
-h1, h2 {
-    width: 100%; /* Ensures the headers can be centered properly if needed */
-    padding: 10px 0; /* Adds some space around the headers */
-}
-
-.image-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
+    padding: 20px;
+    background-color: #e8f5e9;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.image-section img {
-    max-width: 100%;
-    height: auto;
+h2 {
+    font-size: 1rem;
+    color: #555;
+    font-weight: 400;
+    max-width: 80%;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Form Styling */
+form {
+    width: 80%;
+    max-width: 400px;
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .question {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    text-align: left;
 }
 
-label, select {
-    display: block;
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+select {
     width: 100%;
-    margin: 5px 0;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: white;
+    font-size: 1rem;
 }
 
 button {
-    padding: 10px 20px;
+    width: 100%;
+    padding: 12px;
     background-color: #4CAF50;
     color: white;
+    font-size: 1rem;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
+/* Image Section */
+.image-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #e8f5e9;
+}
+
+.image-section img {
+    max-width: 60%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Plant Cards */
 .plant {
-    border: 1px solid #ccc;
-    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
     margin: 10px;
-    width: calc(100% - 22px); /* Adjust width based on padding and border */
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
 .plant img {
-    max-height: 30%;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .form-section, .image-section {
+        width: 100%;
+        padding: 20px;
+    }
 }
